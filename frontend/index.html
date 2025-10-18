@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TrendIQ — AI Market Predictor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div class="background-animation">
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+    <div class="circle circle-3"></div>
+  </div>
+
+  <div class="container">
+    <div class="header">
+      <div class="logo">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <path d="M5 30L15 20L20 25L35 10" stroke="url(#gradient)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <defs>
+            <linearGradient id="gradient" x1="5" y1="20" x2="35" y2="20">
+              <stop offset="0%" stop-color="#00c6ff"/>
+              <stop offset="100%" stop-color="#0072ff"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <h1>TrendIQ</h1>
+      </div>
+      <p class="subtitle">AI-Powered Stock Market Predictions</p>
+    </div>
+
+    <div class="card">
+      <h2>Predict Stock Price</h2>
+      
+      <form id="predictForm">
+        <div class="input-group">
+          <input 
+            type="text" 
+            name="ticker" 
+            id="ticker" 
+            placeholder="Enter Stock Symbol (e.g., AAPL)" 
+            required 
+            autocomplete="off"
+          />
+          <button type="submit" id="predictBtn">
+            <span class="btn-text">Predict</span>
+            <span class="loader"></span>
+          </button>
+        </div>
+      </form>
+
+      <div class="popular-stocks">
+        <p class="label">Popular Stocks:</p>
+        <div class="stock-chips">
+          <button class="chip" data-ticker="AAPL">AAPL</button>
+          <button class="chip" data-ticker="GOOGL">GOOGL</button>
+          <button class="chip" data-ticker="MSFT">MSFT</button>
+          <button class="chip" data-ticker="TSLA">TSLA</button>
+          <button class="chip" data-ticker="AMZN">AMZN</button>
+        </div>
+      </div>
+
+      <div id="result" class="result-container"></div>
+    </div>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <div class="icon">🎯</div>
+        <h3>Accurate</h3>
+        <p>LSTM neural networks for precise predictions</p>
+      </div>
+      <div class="info-card">
+        <div class="icon">⚡</div>
+        <h3>Fast</h3>
+        <p>Real-time analysis in seconds</p>
+      </div>
+      <div class="info-card">
+        <div class="icon">🔒</div>
+        <h3>Secure</h3>
+        <p>Your data is safe and private</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

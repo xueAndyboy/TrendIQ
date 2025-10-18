@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — TrendIQ</title>
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='assets/logo.png') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="background-animation">
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+    <div class="circle circle-3"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="{{ url_for('static', filename='assets/logo.png') }}" alt="TrendIQ Logo" class="logo-img">
+        <span>TrendIQ</span>
+      </div>
+      <div class="nav-links">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/predict-page" class="nav-link">Predict</a>
+        <a href="/about" class="nav-link active">About</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- About Section -->
+  <section class="about-page">
+    <div class="about-container">
+      <div class="about-header">
+        <h1>About TrendIQ</h1>
+        <p class="about-subtitle">Revolutionizing stock market predictions with artificial intelligence</p>
+      </div>
+
+      <div class="about-content-grid">
+        <div class="about-card">
+          <div class="about-card-icon">🚀</div>
+          <h2>Our Mission</h2>
+          <p>
+            TrendIQ is dedicated to democratizing access to advanced financial analysis tools. 
+            We believe that everyone should have access to sophisticated AI-powered market predictions, 
+            not just institutional investors.
+          </p>
+        </div>
+
+        <div class="about-card">
+          <div class="about-card-icon">🤖</div>
+          <h2>The Technology</h2>
+          <p>
+            Our platform uses Long Short-Term Memory (LSTM) neural networks, a type of deep learning 
+            architecture specifically designed for time-series prediction. These models analyze 60 days 
+            of historical stock data to predict next-day closing prices.
+          </p>
+        </div>
+
+        <div class="about-card">
+          <div class="about-card-icon">📊</div>
+          <h2>How It Works</h2>
+          <p>
+            We collect historical stock data, preprocess it using advanced normalization techniques, 
+            and train LSTM models on patterns and trends. The trained models can then predict future 
+            prices with remarkable accuracy.
+          </p>
+        </div>
+      </div>
+
+      <div class="tech-stack-section">
+        <h2>Technology Stack</h2>
+        <div class="tech-grid">
+          <div class="tech-item">
+            <div class="tech-icon">🐍</div>
+            <h3>Python</h3>
+            <p>Backend & ML</p>
+          </div>
+          <div class="tech-item">
+            <div class="tech-icon">🧠</div>
+            <h3>TensorFlow</h3>
+            <p>Deep Learning</p>
+          </div>
+          <div class="tech-item">
+            <div class="tech-icon">🌐</div>
+            <h3>Flask</h3>
+            <p>Web Framework</p>
+          </div>
+          <div class="tech-item">
+            <div class="tech-icon">📈</div>
+            <h3>Chart.js</h3>
+            <p>Visualization</p>
+          </div>
+          <div class="tech-item">
+            <div class="tech-icon">💾</div>
+            <h3>NumPy</h3>
+            <p>Data Processing</p>
+          </div>
+          <div class="tech-item">
+            <div class="tech-icon">📊</div>
+            <h3>Pandas</h3>
+            <p>Data Analysis</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="model-info-section">
+        <h2>Model Architecture</h2>
+        <div class="model-details">
+          <div class="model-layer">
+            <div class="layer-badge">Input Layer</div>
+            <p>60 days of historical closing prices</p>
+          </div>
+          <div class="arrow-down">↓</div>
+          <div class="model-layer">
+            <div class="layer-badge">LSTM Layer 1</div>
+            <p>50 units with return sequences</p>
+          </div>
+          <div class="arrow-down">↓</div>
+          <div class="model-layer">
+            <div class="layer-badge">LSTM Layer 2</div>
+            <p>50 units</p>
+          </div>
+          <div class="arrow-down">↓</div>
+          <div class="model-layer">
+            <div class="layer-badge">Dense Layer</div>
+            <p>1 unit (predicted price)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="features-showcase">
+        <h2>Key Features</h2>
+        <div class="features-list">
+          <div class="feature-item">
+            <span class="check-icon">✓</span>
+            <div>
+              <h3>Real-Time Predictions</h3>
+              <p>Get instant price predictions for any stock</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <span class="check-icon">✓</span>
+            <div>
+              <h3>Interactive Charts</h3>
+              <p>Visualize historical data and predictions</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <span class="check-icon">✓</span>
+            <div>
+              <h3>Trend Analysis</h3>
+              <p>See price changes and trend indicators</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <span class="check-icon">✓</span>
+            <div>
+              <h3>Export Reports</h3>
+              <p>Download prediction reports for your records</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <span class="check-icon">✓</span>
+            <div>
+              <h3>Secure & Private</h3>
+              <p>All processing happens locally on your machine</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <span class="check-icon">✓</span>
+            <div>
+              <h3>No API Keys Required</h3>
+              <p>Free to use with no external dependencies</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="disclaimer-section">
+        <h2>⚠️ Important Disclaimer</h2>
+        <div class="disclaimer-box">
+          <p>
+            <strong>TrendIQ is for educational and informational purposes only.</strong> 
+            Stock market predictions are inherently uncertain and should not be used as the sole basis 
+            for investment decisions. Past performance does not guarantee future results. 
+            Always conduct your own research and consult with financial professionals before making 
+            investment decisions.
+          </p>
+        </div>
+      </div>
+
+      <div class="cta-box">
+        <h2>Ready to Try TrendIQ?</h2>
+        <p>Start making AI-powered stock predictions today</p>
+        <a href="/predict-page" class="btn btn-primary btn-large">Start Predicting</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <div class="footer-logo">
+          <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
+            <path d="M5 30L15 20L20 25L35 10" stroke="url(#gradient2)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs>
+              <linearGradient id="gradient2" x1="5" y1="20" x2="35" y2="20">
+                <stop offset="0%" stop-color="#00c6ff"/>
+                <stop offset="100%" stop-color="#0072ff"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <span>TrendIQ</span>
+        </div>
+        <p class="footer-description">AI-powered stock market predictions for smarter investing</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/predict-page">Predictions</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/">Home</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#">Documentation</a></li>
+          <li><a href="#">API</a></li>
+          <li><a href="#">Support</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 TrendIQ. All rights reserved. Built with ❤️ using AI & Machine Learning</p>
+    </div>
+  </footer>
+</body>
+</html>

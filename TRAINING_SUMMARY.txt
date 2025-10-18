@@ -1,0 +1,157 @@
+╔══════════════════════════════════════════════════════════════════════╗
+║                   🎯 TrendIQ - Training Options                      ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+📋 AVAILABLE TRAINING SCRIPTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1️⃣  QUICK TRAIN (Recommended for beginners)
+    Command: python quick_train.py
+    
+    ✓ Trains: AAPL, GOOGL, MSFT, TSLA, AMZN
+    ✓ Time: ~10-15 minutes
+    ✓ Fully automated
+    ✓ Perfect for getting started
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+2️⃣  BATCH TRAINING (Advanced users)
+    Command: python train_multiple.py
+    
+    ✓ Interactive menu with 3 options:
+      • Train 10 popular stocks
+      • Train custom list of stocks
+      • Train single stock
+    ✓ Custom date range support
+    ✓ Progress tracking
+    ✓ Detailed summary report
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+3️⃣  CHECK MODELS (Status checker)
+    Command: python check_models.py
+    
+    ✓ Shows which models are trained
+    ✓ Displays file sizes
+    ✓ Identifies missing models
+    ✓ Provides recommendations
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+4️⃣  MANUAL TRAINING (Step-by-step control)
+    Commands:
+    1. python backend/data_collector.py
+    2. python backend/preprocess.py
+    3. python backend/model.py
+    
+    ✓ Full control over each step
+    ✓ Train one stock at a time
+    ✓ Good for learning the process
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 QUICK START WORKFLOW
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Step 1: Train popular stocks
+        python quick_train.py
+
+Step 2: Check what's trained
+        python check_models.py
+
+Step 3: Run the web app
+        python app.py
+
+Step 4: Open browser
+        http://127.0.0.1:5000
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📊 PRE-CONFIGURED POPULAR STOCKS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Quick Train (5 stocks):
+  • AAPL  - Apple Inc.
+  • GOOGL - Alphabet Inc.
+  • MSFT  - Microsoft Corporation
+  • TSLA  - Tesla Inc.
+  • AMZN  - Amazon.com Inc.
+
+Batch Train Option 1 (10 stocks):
+  • AAPL  - Apple Inc.
+  • GOOGL - Alphabet Inc.
+  • MSFT  - Microsoft Corporation
+  • TSLA  - Tesla Inc.
+  • AMZN  - Amazon.com Inc.
+  • META  - Meta Platforms Inc.
+  • NVDA  - NVIDIA Corporation
+  • NFLX  - Netflix Inc.
+  • AMD   - Advanced Micro Devices
+  • INTC  - Intel Corporation
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⏱️  ESTIMATED TRAINING TIMES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  1 stock   →  2-3 minutes
+  5 stocks  →  10-15 minutes
+  10 stocks →  20-30 minutes
+  20 stocks →  40-60 minutes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💡 TIPS & BEST PRACTICES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✓ Always check model status before training
+✓ Start with quick_train.py for first-time setup
+✓ Train overnight for large batches
+✓ Retrain models monthly for best accuracy
+✓ Backup your trained models (data/*.h5 files)
+✓ Use check_models.py to verify training success
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📁 FILES CREATED PER STOCK
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+For each trained stock (e.g., AAPL):
+  data/AAPL.csv              - Raw historical data
+  data/AAPL_scaled.npy       - Normalized data
+  data/AAPL_scaler.joblib    - Scaling parameters
+  data/AAPL_lstm.h5          - Trained model (~245 KB)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 RECOMMENDED WORKFLOW FOR DIFFERENT USERS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔰 BEGINNERS:
+   1. python quick_train.py
+   2. python app.py
+   3. Test with the 5 popular stocks
+
+👨‍💻 DEVELOPERS:
+   1. python train_multiple.py (option 1)
+   2. python check_models.py
+   3. python app.py
+
+🏢 PRODUCTION:
+   1. python train_multiple.py (option 2)
+   2. Enter your custom stock list
+   3. python check_models.py
+   4. Deploy with trained models
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📚 DOCUMENTATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  README.md          - Complete project documentation
+  TRAINING_GUIDE.md  - Detailed training guide with examples
+  requirements.txt   - Python dependencies
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Need help? Check TRAINING_GUIDE.md for detailed examples and troubleshooting!

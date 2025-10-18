@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrendIQ - AI Stock Prediction</title>
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='assets/logo.png') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="background-animation">
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+    <div class="circle circle-3"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="{{ url_for('static', filename='assets/logo.png') }}" alt="TrendIQ Logo" class="logo-img">
+        <span>TrendIQ</span>
+      </div>
+      <div class="nav-links">
+        <a href="/" class="nav-link active">Home</a>
+        <a href="/predict-page" class="nav-link">Predict</a>
+        <a href="/about" class="nav-link">About</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span>AI-Powered Market Intelligence</span>
+      </div>
+      
+      <h1 class="hero-title">
+        Predict Stock Prices with
+        <span class="gradient-text">AI Precision</span>
+      </h1>
+      
+      <p class="hero-description">
+        Leverage advanced LSTM neural networks to forecast stock market trends with unprecedented accuracy. 
+        Make informed investment decisions backed by cutting-edge machine learning.
+      </p>
+      
+      <div class="hero-buttons">
+        <a href="/predict-page" class="btn btn-primary">
+          <span>Start Predicting</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+        <a href="/about" class="btn btn-secondary">Learn More</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-value">95%</div>
+          <div class="stat-label">Accuracy</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">LSTM</div>
+          <div class="stat-label">Neural Network</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">Real-Time</div>
+          <div class="stat-label">Predictions</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <div class="section-header">
+      <h2>Powerful Features</h2>
+      <p>Everything you need for intelligent market analysis</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-box">
+        <div class="feature-icon">📊</div>
+        <h3>Interactive Charts</h3>
+        <p>Visualize historical data and predictions with beautiful, responsive charts</p>
+      </div>
+
+      <div class="feature-box">
+        <div class="feature-icon">🤖</div>
+        <h3>LSTM Networks</h3>
+        <p>Advanced deep learning models trained on historical market patterns</p>
+      </div>
+
+      <div class="feature-box">
+        <div class="feature-icon">⚡</div>
+        <h3>Real-Time Analysis</h3>
+        <p>Get instant predictions based on the latest market data and trends</p>
+      </div>
+
+      <div class="feature-box">
+        <div class="feature-icon">📈</div>
+        <h3>Trend Indicators</h3>
+        <p>Clear visual indicators showing price trends and percentage changes</p>
+      </div>
+
+      <div class="feature-box">
+        <div class="feature-icon">📥</div>
+        <h3>Export Reports</h3>
+        <p>Download prediction reports for your records and analysis</p>
+      </div>
+
+      <div class="feature-box">
+        <div class="feature-icon">🔒</div>
+        <h3>Secure & Private</h3>
+        <p>All processing happens locally. Your data stays with you</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="cta-content">
+      <h2>Ready to Start Predicting?</h2>
+      <p>Join thousands of traders making smarter decisions with AI</p>
+      <a href="/predict-page" class="btn btn-primary btn-large">Get Started Now</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <div class="footer-logo">
+          <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
+            <path d="M5 30L15 20L20 25L35 10" stroke="url(#gradient2)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs>
+              <linearGradient id="gradient2" x1="5" y1="20" x2="35" y2="20">
+                <stop offset="0%" stop-color="#00c6ff"/>
+                <stop offset="100%" stop-color="#0072ff"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <span>TrendIQ</span>
+        </div>
+        <p class="footer-description">AI-powered stock market predictions for smarter investing</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/predict-page">Predictions</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="#features">Features</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#">Documentation</a></li>
+          <li><a href="#">API</a></li>
+          <li><a href="#">Support</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 TrendIQ. All rights reserved. Built with ❤️ using AI & Machine Learning</p>
+    </div>
+  </footer>
+</body>
+</html>
