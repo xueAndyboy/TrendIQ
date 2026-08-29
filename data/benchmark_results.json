@@ -1,0 +1,164 @@
+{
+  "AAPL": {
+    "ticker": "AAPL",
+    "sample_size": 480,
+    "train_samples": 384,
+    "test_samples": 96,
+    "test_period": "2026-04-13 to 2026-08-27",
+    "latest_price": 314.58,
+    "ridge_model": {
+      "rmse": 5.52,
+      "mae": 4.01,
+      "mape": 1.34,
+      "directional_accuracy": 44.8
+    },
+    "naive_baseline": {
+      "rmse": 5.53,
+      "mae": 3.98,
+      "mape": 1.33,
+      "directional_accuracy": 0.0
+    },
+    "sma20_baseline": {
+      "rmse": 15.36,
+      "mae": 13.87,
+      "mape": 4.58,
+      "directional_accuracy": 49.0
+    },
+    "improvement_over_naive_rmse_pct": 0.18
+  },
+  "GOOGL": {
+    "ticker": "GOOGL",
+    "sample_size": 480,
+    "train_samples": 384,
+    "test_samples": 96,
+    "test_period": "2026-04-13 to 2026-08-27",
+    "latest_price": 340.65,
+    "ridge_model": {
+      "rmse": 8.33,
+      "mae": 5.78,
+      "mape": 1.61,
+      "directional_accuracy": 50.0
+    },
+    "naive_baseline": {
+      "rmse": 8.26,
+      "mae": 5.76,
+      "mape": 1.61,
+      "directional_accuracy": 0.0
+    },
+    "sma20_baseline": {
+      "rmse": 22.93,
+      "mae": 17.76,
+      "mape": 4.92,
+      "directional_accuracy": 50.0
+    },
+    "improvement_over_naive_rmse_pct": -0.85
+  },
+  "MSFT": {
+    "ticker": "MSFT",
+    "sample_size": 480,
+    "train_samples": 384,
+    "test_samples": 96,
+    "test_period": "2026-04-13 to 2026-08-27",
+    "latest_price": 505.06,
+    "ridge_model": {
+      "rmse": 10.63,
+      "mae": 7.46,
+      "mape": 1.78,
+      "directional_accuracy": 49.0
+    },
+    "naive_baseline": {
+      "rmse": 10.58,
+      "mae": 7.41,
+      "mape": 1.77,
+      "directional_accuracy": 0.0
+    },
+    "sma20_baseline": {
+      "rmse": 33.94,
+      "mae": 24.63,
+      "mape": 5.65,
+      "directional_accuracy": 44.8
+    },
+    "improvement_over_naive_rmse_pct": -0.47
+  },
+  "TSLA": {
+    "ticker": "TSLA",
+    "sample_size": 480,
+    "train_samples": 384,
+    "test_samples": 96,
+    "test_period": "2026-04-13 to 2026-08-27",
+    "latest_price": 354.81,
+    "ridge_model": {
+      "rmse": 12.74,
+      "mae": 9.51,
+      "mape": 2.5,
+      "directional_accuracy": 41.7
+    },
+    "naive_baseline": {
+      "rmse": 12.57,
+      "mae": 9.32,
+      "mape": 2.44,
+      "directional_accuracy": 0.0
+    },
+    "sma20_baseline": {
+      "rmse": 29.51,
+      "mae": 22.85,
+      "mape": 6.25,
+      "directional_accuracy": 49.0
+    },
+    "improvement_over_naive_rmse_pct": -1.35
+  },
+  "AMZN": {
+    "ticker": "AMZN",
+    "sample_size": 480,
+    "train_samples": 384,
+    "test_samples": 96,
+    "test_period": "2026-04-13 to 2026-08-27",
+    "latest_price": 256.26,
+    "ridge_model": {
+      "rmse": 5.96,
+      "mae": 3.95,
+      "mape": 1.55,
+      "directional_accuracy": 55.2
+    },
+    "naive_baseline": {
+      "rmse": 5.88,
+      "mae": 4.0,
+      "mape": 1.57,
+      "directional_accuracy": 0.0
+    },
+    "sma20_baseline": {
+      "rmse": 17.2,
+      "mae": 13.89,
+      "mape": 5.45,
+      "directional_accuracy": 49.0
+    },
+    "improvement_over_naive_rmse_pct": -1.36
+  },
+  "NVDA": {
+    "ticker": "NVDA",
+    "sample_size": 480,
+    "train_samples": 384,
+    "test_samples": 96,
+    "test_period": "2026-04-13 to 2026-08-27",
+    "latest_price": 227.98,
+    "ridge_model": {
+      "rmse": 5.39,
+      "mae": 4.3,
+      "mape": 2.04,
+      "directional_accuracy": 56.2
+    },
+    "naive_baseline": {
+      "rmse": 5.47,
+      "mae": 4.27,
+      "mape": 2.03,
+      "directional_accuracy": 0.0
+    },
+    "sma20_baseline": {
+      "rmse": 11.82,
+      "mae": 9.82,
+      "mape": 4.69,
+      "directional_accuracy": 56.2
+    },
+    "improvement_over_naive_rmse_pct": 1.46
+  }
+}

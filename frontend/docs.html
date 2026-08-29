@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Documentation — TrendIQ</title>
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='assets/logo.png') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="background-animation">
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+    <div class="circle circle-3"></div>
+  </div>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="{{ url_for('static', filename='assets/logo.png') }}" alt="TrendIQ Logo" class="logo-img">
+        <span>TrendIQ</span>
+      </div>
+      <div class="nav-links">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/predict-page" class="nav-link">Predict</a>
+        <a href="/about" class="nav-link">Methodology</a>
+        <a href="/documentation" class="nav-link active">Docs</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="about-page">
+    <div class="about-container">
+      <div class="about-header">
+        <h1>Project Documentation</h1>
+        <p class="about-subtitle">Architecture overview, installation instructions, and local reproduction guide.</p>
+      </div>
+
+      <div class="methodology-section">
+        <h2>🛠️ Architecture Overview</h2>
+        <div class="details-box">
+          <p>TrendIQ is built as a serverless Python web application designed for fast, reproducible time-series inference:</p>
+          <ul>
+            <li><strong>Frontend:</strong> Clean vanilla JavaScript, CSS3 with modern glassmorphism, responsive Chart.js visualizer.</li>
+            <li><strong>Backend Server:</strong> Flask WSGI application deployed to Vercel Serverless Functions (`@vercel/python`).</li>
+            <li><strong>Market Data Engine:</strong> Live and historical market data ingested directly from Yahoo Finance via `yfinance` and `curl_cffi`.</li>
+            <li><strong>Quantitative Engine:</strong> Scikit-learn Ridge Autoregressive pipeline with dynamic lag engineering and residual error variance bands.</li>
+            <li><strong>Sentiment NLP:</strong> Financial lexicon polarity analyzer evaluating real-time ticker news.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="methodology-section">
+        <h2>💻 Local Setup & Development</h2>
+        <div class="details-box">
+          <p>To run TrendIQ locally on your development machine:</p>
+          <pre class="code-snippet"><code># 1. Clone the repository
+git clone https://github.com/Simarjot846/TrendIQ.git
+cd TrendIQ
+
+# 2. Create and activate a virtual environment
+python -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+
+# 3. Install required dependencies
+pip install -r requirements.txt
+
+# 4. Run the quantitative evaluation pipeline (optional)
+python backend/evaluate_pipeline.py
+
+# 5. Start the local server
+python app.py</code></pre>
+          <p>Access the web application in your browser at <code>http://127.0.0.1:5000</code>.</p>
+        </div>
+      </div>
+
+      <div class="methodology-section">
+        <h2>📊 Reproducing Benchmark Evaluations</h2>
+        <div class="details-box">
+          <p>The empirical benchmark results shown across the application are fully reproducible. Run the standalone pipeline script:</p>
+          <pre class="code-snippet"><code>python backend/evaluate_pipeline.py</code></pre>
+          <p>This script downloads 2 years of daily data, applies the strict chronological 80/20 train/test split, calculates metrics against the Naive baseline, and writes the output directly to <code>data/benchmark_results.json</code>.</p>
+        </div>
+      </div>
+
+      <div class="cta-box">
+        <h2>Explore the API</h2>
+        <p>Learn how to programmatically query the prediction and benchmark endpoints.</p>
+        <a href="/api-docs" class="btn btn-primary">View API Reference</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <div class="footer-logo">
+          <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
+            <path d="M5 30L15 20L20 25L35 10" stroke="url(#gradient2)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs>
+              <linearGradient id="gradient2" x1="5" y1="20" x2="35" y2="20">
+                <stop offset="0%" stop-color="#00c6ff"/>
+                <stop offset="100%" stop-color="#0072ff"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <span>TrendIQ</span>
+        </div>
+        <p class="footer-description">Quantitative time-series forecasting & market sentiment analyzer</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/predict-page">Predictor</a></li>
+          <li><a href="/about">Methodology</a></li>
+          <li><a href="/">Home</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Developer & Docs</h4>
+        <ul>
+          <li><a href="/documentation">Documentation</a></li>
+          <li><a href="/api-docs">API Reference</a></li>
+          <li><a href="https://github.com/Simarjot846/TrendIQ" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Legal & Compliance</h4>
+        <ul>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/terms">Terms of Service</a></li>
+          <li><a href="/disclaimer">Financial Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 TrendIQ. Open-source educational project for quantitative market analysis.</p>
+    </div>
+  </footer>
+</body>
+</html>

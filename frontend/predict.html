@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Predict — TrendIQ</title>
+  <title>Quantitative Predictor — TrendIQ</title>
   <link rel="icon" type="image/png" href="{{ url_for('static', filename='assets/logo.png') }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,7 +28,8 @@
       <div class="nav-links">
         <a href="/" class="nav-link">Home</a>
         <a href="/predict-page" class="nav-link active">Predict</a>
-        <a href="/about" class="nav-link">About</a>
+        <a href="/about" class="nav-link">Methodology</a>
+        <a href="/documentation" class="nav-link">Docs</a>
       </div>
     </div>
   </nav>
@@ -36,181 +37,122 @@
   <div class="page-container">
     <div class="predict-wrapper">
       <div class="container">
-        <div class="header">
-        <div class="logo">
-          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-            <path d="M5 30L15 20L20 25L35 10" stroke="url(#gradient2)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-            <defs>
-              <linearGradient id="gradient2" x1="5" y1="20" x2="35" y2="20">
-                <stop offset="0%" stop-color="#00c6ff"/>
-                <stop offset="100%" stop-color="#0072ff"/>
-              </linearGradient>
-            </defs>
-          </svg>
-          <h1>TrendIQ</h1>
-        </div>
-        <p class="subtitle">AI-Powered Stock Market Predictions</p>
-      </div>
-
-      <!-- Live Ticker Widget -->
-      <div class="live-ticker-widget">
-        <div class="ticker-header">
-          <span class="ticker-icon">📊</span>
-          <span>Live Market Data</span>
-        </div>
-        <div id="liveTicker" class="ticker-scroll"></div>
-      </div>
-
-      <div class="card">
-        <h2>Predict Stock Price</h2>
         
-        <form id="predictForm">
-          <div class="input-group">
-            <input 
-              type="text" 
-              name="ticker" 
-              id="ticker" 
-              placeholder="Enter Stock Symbol (e.g., AAPL)" 
-              required 
-              autocomplete="off"
-            />
-            <button type="submit" id="predictBtn">
-              <span class="btn-text">Predict</span>
-              <span class="loader"></span>
+        <div class="header">
+          <div class="logo">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+              <path d="M5 30L15 20L20 25L35 10" stroke="url(#gradient2)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <defs>
+                <linearGradient id="gradient2" x1="5" y1="20" x2="35" y2="20">
+                  <stop offset="0%" stop-color="#00c6ff"/>
+                  <stop offset="100%" stop-color="#0072ff"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <h1>TrendIQ</h1>
+          </div>
+          <p class="subtitle">Multi-Horizon Quantitative Stock Forecasting & Sentiment Analysis</p>
+        </div>
+
+        <!-- Live Ticker Widget -->
+        <div class="live-ticker-widget">
+          <div class="ticker-header">
+            <span class="ticker-icon">📊</span>
+            <span>Live Market Ticker (Real-Time Ingestion)</span>
+          </div>
+          <div id="liveTicker" class="ticker-scroll"></div>
+        </div>
+
+        <!-- Prediction Input Card -->
+        <div class="card">
+          <h2>Forecast Stock Trajectory</h2>
+          
+          <form id="predictForm">
+            <div class="input-group">
+              <input 
+                type="text" 
+                name="ticker" 
+                id="ticker" 
+                placeholder="Enter US Stock Symbol (e.g. AAPL, NVDA, TSLA, MSFT)" 
+                required 
+                autocomplete="off"
+              />
+              <button type="submit" id="predictBtn">
+                <span class="btn-text">Generate Forecast</span>
+                <span class="loader"></span>
+              </button>
+            </div>
+          </form>
+
+          <!-- Feature Toggles -->
+          <div class="feature-toggles">
+            <button class="toggle-btn" id="comparisonToggle">
+              <span>📊</span> Compare Stocks
+            </button>
+            <button class="toggle-btn" id="historyToggle">
+              <span>📜</span> Prediction History
             </button>
           </div>
-        </form>
 
-        <!-- Comparison Mode Toggle -->
-        <div class="feature-toggles">
-          <button class="toggle-btn" id="comparisonToggle">
-            <span>📊</span> Compare Stocks
-          </button>
-          <button class="toggle-btn" id="historyToggle">
-            <span>📜</span> View History
-          </button>
-        </div>
-
-        <!-- Comparison Section -->
-        <div id="comparisonSection" class="comparison-section hidden">
-          <h3>Compare Multiple Stocks</h3>
-          <div class="comparison-inputs">
-            <input type="text" id="compareStock1" placeholder="Stock 1" class="compare-input">
-            <input type="text" id="compareStock2" placeholder="Stock 2" class="compare-input">
-            <input type="text" id="compareStock3" placeholder="Stock 3 (optional)" class="compare-input">
-            <button class="btn-compare" onclick="compareStocks()">Compare</button>
-          </div>
-          <div id="comparisonResults"></div>
-        </div>
-
-        <!-- History Section -->
-        <div id="historySection" class="history-section hidden">
-          <div class="history-header">
-            <h3>Prediction History</h3>
-            <button class="clear-history-btn" onclick="clearHistory()">Clear All</button>
-          </div>
-          <div id="historyList"></div>
-        </div>
-
-        <div class="popular-stocks">
-          <p class="label">Popular Stocks:</p>
-          <div class="stock-chips">
-            <button class="chip" data-ticker="AAPL">AAPL</button>
-            <button class="chip" data-ticker="GOOGL">GOOGL</button>
-            <button class="chip" data-ticker="MSFT">MSFT</button>
-            <button class="chip" data-ticker="TSLA">TSLA</button>
-            <button class="chip" data-ticker="AMZN">AMZN</button>
-          </div>
-        </div>
-
-        <div id="result" class="result-container"></div>
-      </div>
-
-      <!-- Stats Dashboard -->
-      <div class="stats-dashboard">
-        <div class="stat-box">
-          <div class="stat-icon">📊</div>
-          <div class="stat-number" id="totalPredictions">0</div>
-          <div class="stat-label">Total Predictions</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-icon">⚡</div>
-          <div class="stat-number">95%</div>
-          <div class="stat-label">Avg Confidence</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-icon">🎯</div>
-          <div class="stat-number">5</div>
-          <div class="stat-label">Models Trained</div>
-        </div>
-      </div>
-
-      <!-- Quick Tips -->
-      <div class="tips-section">
-        <h3>💡 Quick Tips</h3>
-        <div class="tips-grid">
-          <div class="tip-card">
-            <span class="tip-emoji">📈</span>
-            <p><strong>Best Time:</strong> Predict during market hours for most accurate results</p>
-          </div>
-          <div class="tip-card">
-            <span class="tip-emoji">🔄</span>
-            <p><strong>Compare:</strong> Use the comparison feature to analyze multiple stocks</p>
-          </div>
-          <div class="tip-card">
-            <span class="tip-emoji">📜</span>
-            <p><strong>Track:</strong> View your prediction history to track performance</p>
-          </div>
-          <div class="tip-card">
-            <span class="tip-emoji">💾</span>
-            <p><strong>Save:</strong> Download reports for your investment records</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Market Insights -->
-      <div class="insights-section">
-        <h3>📰 Market Insights</h3>
-        <div class="insight-cards">
-          <div class="insight-card">
-            <div class="insight-header">
-              <span class="insight-badge trending">Trending</span>
-              <span class="insight-time">Today</span>
+          <!-- Comparison Section -->
+          <div id="comparisonSection" class="comparison-section hidden">
+            <h3>Compare Multiple Stock Forecasts</h3>
+            <div class="comparison-inputs">
+              <input type="text" id="compareStock1" placeholder="Stock 1 (e.g. AAPL)" class="compare-input">
+              <input type="text" id="compareStock2" placeholder="Stock 2 (e.g. NVDA)" class="compare-input">
+              <input type="text" id="compareStock3" placeholder="Stock 3 (e.g. MSFT)" class="compare-input">
+              <button class="btn-compare" onclick="compareStocks()">Run Comparison</button>
             </div>
-            <h4>Tech Stocks Rally</h4>
-            <p>Major tech stocks showing strong momentum with AI sector leading gains</p>
+            <div id="comparisonResults"></div>
           </div>
-          <div class="insight-card">
-            <div class="insight-header">
-              <span class="insight-badge hot">Hot</span>
-              <span class="insight-time">2h ago</span>
-            </div>
-            <h4>Market Volatility</h4>
-            <p>Increased volatility observed in energy sector stocks this week</p>
-          </div>
-        </div>
-      </div>
 
-      <!-- Info Cards -->
-      <div class="info-cards">
-        <div class="info-card">
-          <div class="icon">🎯</div>
-          <h3>Accurate</h3>
-          <p>LSTM neural networks for precise predictions</p>
+          <!-- History Section -->
+          <div id="historySection" class="history-section hidden">
+            <div class="history-header">
+              <h3>Recent Forecast History</h3>
+              <button class="clear-history-btn" onclick="clearHistory()">Clear History</button>
+            </div>
+            <div id="historyList"></div>
+          </div>
+
+          <!-- Popular Tickers -->
+          <div class="popular-stocks">
+            <p class="label">Quick Select Benchmarked Tickers:</p>
+            <div class="stock-chips">
+              <button class="chip" data-ticker="AAPL">AAPL</button>
+              <button class="chip" data-ticker="NVDA">NVDA</button>
+              <button class="chip" data-ticker="MSFT">MSFT</button>
+              <button class="chip" data-ticker="GOOGL">GOOGL</button>
+              <button class="chip" data-ticker="TSLA">TSLA</button>
+              <button class="chip" data-ticker="AMZN">AMZN</button>
+            </div>
+          </div>
+
+          <!-- Main Result Container -->
+          <div id="result" class="result-container"></div>
         </div>
-        <div class="info-card">
-          <div class="icon">⚡</div>
-          <h3>Fast</h3>
-          <p>Real-time analysis in seconds</p>
+
+        <!-- Quantitative Method Highlights Grid -->
+        <div class="info-cards">
+          <div class="info-card">
+            <div class="icon">📐</div>
+            <h3>Autoregressive Modeling</h3>
+            <p>Ridge L2-regularized lag formulation (lags 1-5 + SMA proxies) minimizing collinearity error</p>
+          </div>
+          <div class="info-card">
+            <div class="icon">📈</div>
+            <h3>Uncertainty Estimation</h3>
+            <p>Analytical 80% and 95% variance bands expanding dynamically with \(\sqrt{h}\)</p>
+          </div>
+          <div class="info-card">
+            <div class="icon">📰</div>
+            <h3>NLP Sentiment Signals</h3>
+            <p>Real-time financial headline polarity scoring for qualitative context</p>
+          </div>
         </div>
-        <div class="info-card">
-          <div class="icon">🔒</div>
-          <h3>Secure</h3>
-          <p>Your data is safe and private</p>
-        </div>
+
       </div>
     </div>
-  </div>
   </div>
 
   <!-- Footer -->
@@ -229,39 +171,39 @@
           </svg>
           <span>TrendIQ</span>
         </div>
-        <p class="footer-description">AI-powered stock market predictions for smarter investing</p>
+        <p class="footer-description">Quantitative time-series forecasting & market sentiment analyzer</p>
       </div>
 
       <div class="footer-section">
         <h4>Product</h4>
         <ul>
-          <li><a href="/predict-page">Predictions</a></li>
-          <li><a href="/about">About</a></li>
+          <li><a href="/predict-page">Predictor</a></li>
+          <li><a href="/about">Methodology</a></li>
           <li><a href="/">Home</a></li>
         </ul>
       </div>
 
       <div class="footer-section">
-        <h4>Resources</h4>
+        <h4>Developer & Docs</h4>
         <ul>
-          <li><a href="#">Documentation</a></li>
-          <li><a href="#">API</a></li>
-          <li><a href="#">Support</a></li>
+          <li><a href="/documentation">Documentation</a></li>
+          <li><a href="/api-docs">API Reference</a></li>
+          <li><a href="https://github.com/Simarjot846/TrendIQ" target="_blank" rel="noopener">GitHub</a></li>
         </ul>
       </div>
 
       <div class="footer-section">
-        <h4>Legal</h4>
+        <h4>Legal & Compliance</h4>
         <ul>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>
-          <li><a href="#">Disclaimer</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/terms">Terms of Service</a></li>
+          <li><a href="/disclaimer">Financial Disclaimer</a></li>
         </ul>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; 2025 TrendIQ. All rights reserved. Built with ❤️ using AI & Machine Learning</p>
+      <p>&copy; 2026 TrendIQ. Open-source educational project for quantitative market analysis.</p>
     </div>
   </footer>
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TrendIQ - AI Stock Prediction</title>
+  <title>TrendIQ - Quantitative AI Market Predictor</title>
   <link rel="icon" type="image/png" href="{{ url_for('static', filename='assets/logo.png') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -26,7 +26,8 @@
       <div class="nav-links">
         <a href="/" class="nav-link active">Home</a>
         <a href="/predict-page" class="nav-link">Predict</a>
-        <a href="/about" class="nav-link">About</a>
+        <a href="/about" class="nav-link">Methodology</a>
+        <a href="/documentation" class="nav-link">Docs</a>
       </div>
     </div>
   </nav>
@@ -36,88 +37,87 @@
     <div class="hero-content">
       <div class="hero-badge">
         <span class="badge-dot"></span>
-        <span>AI-Powered Market Intelligence</span>
+        <span>Quantitative Time-Series Intelligence</span>
       </div>
       
       <h1 class="hero-title">
         Predict Stock Prices with
-        <span class="gradient-text">AI Precision</span>
+        <span class="gradient-text">Statistical Rigor</span>
       </h1>
       
       <p class="hero-description">
-        Leverage advanced LSTM neural networks to forecast stock market trends with unprecedented accuracy. 
-        Make informed investment decisions backed by cutting-edge machine learning.
+        Multi-horizon autoregressive machine learning with analytical uncertainty bands and real-time market sentiment. Evaluated against naive persistence baselines with no lookahead bias.
       </p>
       
       <div class="hero-buttons">
         <a href="/predict-page" class="btn btn-primary">
-          <span>Start Predicting</span>
+          <span>Launch Predictor</span>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M5 12h14M12 5l7 7-7 7"/>
           </svg>
         </a>
-        <a href="/about" class="btn btn-secondary">Learn More</a>
+        <a href="/about" class="btn btn-secondary">Read Methodology</a>
       </div>
 
       <div class="hero-stats">
         <div class="stat-item">
-          <div class="stat-value">95%</div>
-          <div class="stat-label">Accuracy</div>
+          <div class="stat-value">1d / 7d / 30d</div>
+          <div class="stat-label">Multi-Horizon</div>
         </div>
         <div class="stat-item">
-          <div class="stat-value">LSTM</div>
-          <div class="stat-label">Neural Network</div>
+          <div class="stat-value">80% & 95%</div>
+          <div class="stat-label">Uncertainty Bands</div>
         </div>
         <div class="stat-item">
-          <div class="stat-value">Real-Time</div>
-          <div class="stat-label">Predictions</div>
+          <div class="stat-value">Live NLP</div>
+          <div class="stat-label">News Sentiment</div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Features Section -->
-  <section class="features-section">
+  <section class="features-section" id="features">
     <div class="section-header">
-      <h2>Powerful Features</h2>
-      <p>Everything you need for intelligent market analysis</p>
+      <h2>Engineered for Quantitative Transparency</h2>
+      <p>Real-world mathematical modeling without fabricated claims</p>
     </div>
 
     <div class="features-grid">
       <div class="feature-box">
         <div class="feature-icon">📊</div>
-        <h3>Interactive Charts</h3>
-        <p>Visualize historical data and predictions with beautiful, responsive charts</p>
+        <h3>Uncertainty Bands</h3>
+        <p>Analytical 80% and 95% confidence intervals scaling with the square root of time horizon (\(\sqrt{h}\))</p>
       </div>
 
       <div class="feature-box">
         <div class="feature-icon">🤖</div>
-        <h3>LSTM Networks</h3>
-        <p>Advanced deep learning models trained on historical market patterns</p>
+        <h3>Autoregressive ML</h3>
+        <p>Lag features, rolling moving averages, and momentum signals regularized to prevent overfitting</p>
+      </div>
+
+      <div class="feature-box">
+        <div class="feature-icon">📰</div>
+        <h3>News Sentiment NLP</h3>
+        <p>Live ingestion of financial headlines with automated lexicon polarity scoring for qualitative context</p>
+      </div>
+
+      <div class="feature-box">
+        <div class="feature-icon">⏱️</div>
+        <h3>Multi-Horizon Forecasts</h3>
+        <p>Dynamic step projections across 1-day, 7-day, and 30-day windows demonstrating confidence decay</p>
+      </div>
+
+      <div class="feature-box">
+        <div class="feature-icon">🎯</div>
+        <h3>Baseline Benchmarking</h3>
+        <p>Transparent comparison against Naive Persistence (\(\hat{y}_t = y_{t-1}\)) using RMSE, MAE, and MAPE</p>
       </div>
 
       <div class="feature-box">
         <div class="feature-icon">⚡</div>
-        <h3>Real-Time Analysis</h3>
-        <p>Get instant predictions based on the latest market data and trends</p>
-      </div>
-
-      <div class="feature-box">
-        <div class="feature-icon">📈</div>
-        <h3>Trend Indicators</h3>
-        <p>Clear visual indicators showing price trends and percentage changes</p>
-      </div>
-
-      <div class="feature-box">
-        <div class="feature-icon">📥</div>
-        <h3>Export Reports</h3>
-        <p>Download prediction reports for your records and analysis</p>
-      </div>
-
-      <div class="feature-box">
-        <div class="feature-icon">🔒</div>
-        <h3>Secure & Private</h3>
-        <p>All processing happens locally. Your data stays with you</p>
+        <h3>Live Market Ingestion</h3>
+        <p>Real-time market quotes and historical series fetched dynamically via Yahoo Finance API</p>
       </div>
     </div>
   </section>
@@ -125,9 +125,9 @@
   <!-- CTA Section -->
   <section class="cta-section">
     <div class="cta-content">
-      <h2>Ready to Start Predicting?</h2>
-      <p>Join thousands of traders making smarter decisions with AI</p>
-      <a href="/predict-page" class="btn btn-primary btn-large">Get Started Now</a>
+      <h2>Explore the Live Model Engine</h2>
+      <p>Analyze any US ticker, inspect uncertainty intervals, and examine backtested benchmarks</p>
+      <a href="/predict-page" class="btn btn-primary btn-large">Launch Predictor</a>
     </div>
   </section>
 
@@ -147,39 +147,39 @@
           </svg>
           <span>TrendIQ</span>
         </div>
-        <p class="footer-description">AI-powered stock market predictions for smarter investing</p>
+        <p class="footer-description">Quantitative time-series forecasting & market sentiment analyzer</p>
       </div>
 
       <div class="footer-section">
         <h4>Product</h4>
         <ul>
-          <li><a href="/predict-page">Predictions</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="#features">Features</a></li>
+          <li><a href="/predict-page">Predictor</a></li>
+          <li><a href="/about">Methodology</a></li>
+          <li><a href="#features">Architecture</a></li>
         </ul>
       </div>
 
       <div class="footer-section">
-        <h4>Resources</h4>
+        <h4>Developer & Docs</h4>
         <ul>
-          <li><a href="#">Documentation</a></li>
-          <li><a href="#">API</a></li>
-          <li><a href="#">Support</a></li>
+          <li><a href="/documentation">Documentation</a></li>
+          <li><a href="/api-docs">API Reference</a></li>
+          <li><a href="https://github.com/Simarjot846/TrendIQ" target="_blank" rel="noopener">GitHub Repository</a></li>
         </ul>
       </div>
 
       <div class="footer-section">
-        <h4>Legal</h4>
+        <h4>Legal & Compliance</h4>
         <ul>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>
-          <li><a href="#">Disclaimer</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/terms">Terms of Service</a></li>
+          <li><a href="/disclaimer">Financial Disclaimer</a></li>
         </ul>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; 2025 TrendIQ. All rights reserved. Built with ❤️ using AI & Machine Learning</p>
+      <p>&copy; 2026 TrendIQ. Open-source educational project for quantitative market analysis.</p>
     </div>
   </footer>
 </body>
