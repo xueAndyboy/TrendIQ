@@ -86,6 +86,9 @@ function showResult(type, title, message, data = null) {
               ${trendIcon} ${changeSign}$${data.price_change} (${changeSign}${data.price_change_pct}%)
             </div>
           ` : ''}
+          <div class="model-badge">
+            ${data.model_type === 'lstm' ? '🧠 LSTM Model (Pre-trained)' : '⚡ Ridge ML (Live Feed)'}
+          </div>
         </div>
         
         ${data.confidence ? `
@@ -286,15 +289,20 @@ async function updateLiveTicker() {
   const tickerEl = document.getElementById('liveTicker');
   if (!tickerEl) return;
   
-  // Show loading state
-  tickerEl.innerHTML = '<span class="ticker-loading">Loading market data...</span>';
+  // Show loading state if empty
+  if (!tickerEl.querySelector('.ticker-track')) {
+    tickerEl.innerHTML = '<span class="ticker-loading">Loading market data...</span>';
+  }
   
   try {
     const response = await fetch('/live-ticker');
     const data = await response.json();
     
     if (data && data.length > 0) {
-      const tickerHTML = data.map(stock => {
+      // Duplicate elements for infinite scroll loop
+      const doubledData = [...data, ...data];
+      
+      const tickerHTML = doubledData.map(stock => {
         if (stock.price === null) {
           return `<span class="ticker-item">${stock.symbol}: N/A</span>`;
         }
@@ -312,7 +320,7 @@ async function updateLiveTicker() {
         `;
       }).join('');
       
-      tickerEl.innerHTML = tickerHTML;
+      tickerEl.innerHTML = `<div class="ticker-track">${tickerHTML}</div>`;
     } else {
       tickerEl.innerHTML = '<span class="ticker-item">No data available</span>';
     }

@@ -1522,14 +1522,29 @@ button[type="submit"].loading .loader {
 
 .ticker-scroll {
   display: flex;
-  gap: 30px;
-  overflow-x: auto;
-  padding: 10px 0;
-  scrollbar-width: none;
+  overflow: hidden;
+  width: 100%;
 }
 
-.ticker-scroll::-webkit-scrollbar {
-  display: none;
+.ticker-track {
+  display: flex;
+  gap: 40px;
+  padding: 5px 0;
+  animation: ticker-marquee 25s linear infinite;
+  white-space: nowrap;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes ticker-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
 }
 
 .ticker-item {
@@ -1540,6 +1555,20 @@ button[type="submit"].loading .loader {
 
 .ticker-loading {
   color: #00c6ff;
+}
+
+.model-badge {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 /* Feature Toggles */
