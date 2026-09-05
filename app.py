@@ -415,4 +415,6 @@ def predict():
         return jsonify({"error": f"Prediction error: {str(e)}"})
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5050))
+    print(f"Starting TrendIQ on http://127.0.0.1:{port}")
+    app.run(host="0.0.0.0", port=port, debug=False)
